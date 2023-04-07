@@ -19,7 +19,7 @@ router.get('/cryptos', async (req, res) => {
     //`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=cd53bbe6-0cc5-4f98-9ab0-c3c729fcf09f`
     try {
         const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`);
-        const resFiltered = response.data.slice(0,10);
+        const resFiltered = response.data.slice(0,100);
         res.json(resFiltered);
     } catch (error) {
         return console.log(error.message);
